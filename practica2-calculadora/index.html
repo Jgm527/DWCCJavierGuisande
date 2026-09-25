@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de notas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="calculadora.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Calculadora de notas</h1>
+    </header>
+
+    <main>
+        <section class="tarjeta">
+            <h2>Calcula tu nota final</h2>
+
+            <form id="formulario">
+                <div class="campo">
+                    <label for="examen">Nota del examen</label>
+                    <input
+                        type="number"
+                        id="examen"
+                        name="examen"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                        placeholder="0 - 10"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="practica">Nota de la práctica</label>
+                    <input
+                        type="number"
+                        id="practica"
+                        name="practica"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                        placeholder="0 - 10"
+                    >
+                </div>
+
+                <button type="submit">Calcular</button>
+            </form>
+
+            <p id="aviso"></p>
+
+            <div id="resultado"></div>
+
+            <div id="notaMinima"></div>
+
+            <section id="historialSeccion">
+                <h2>Historial</h2>
+                <ul id="historial"></ul>
+                <button type="button" id="borrarHistorial">
+                    Borrar historial
+                </button>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

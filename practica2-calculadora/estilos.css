@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+main {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 30px;
+
+    background-color: white;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+
+    border: 2px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 1rem;
+}
+
+input.error {
+    border-color: red;
+    background-color: #fff0f0;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #333;
+    color: white;
+
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 15px;
+
+    border-radius: 8px;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#resultado.aprobado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#resultado.suspenso {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#aviso {
+    color: #c00;
+    font-weight: bold;
+}
+
+#notaMinima {
+    margin-top: 15px;
+}
+
+#historialSeccion {
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+#historial {
+    padding-left: 20px;
+}
+
+#borrarHistorial {
+    background-color: #777;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .tarjeta {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
