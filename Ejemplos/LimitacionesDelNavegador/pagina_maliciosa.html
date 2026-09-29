@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demostración de CORS</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        #resultado { margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 4px; background: #f9f9f9; min-height: 50px; }
+        .error { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }
+        .success { color: #155724; background-color: #d4edda; border-color: #c3e6cb; }
+    </style>
+</head>
+<body>
+
+    <h2>Demostración de CORS en acción</h2>
+    <p>Origen actual: <strong><span id="origen-actual"></span></strong></p>
+    
+    <button id="btn-peticion">Hacer Petición a la API del banco (puerto 8050)</button>
+
+    <h3>Respuesta del Servidor:</h3>
+    <div id="resultado">Haz clic en el botón para iniciar la petición...</div>
+
+    <script>
+        // Mostrar el origen actual en la página
+        document.getElementById('origen-actual').innerText = window.location.origin;
+
+        document.getElementById('btn-peticion').addEventListener('click', async () => {
+            const divResultado = document.getElementById('resultado');
+            divResultado.className = '';
+            divResultado.innerText = 'Cargando...';
+
+            try {
+                // Intentamos llamar al puerto 8081 (Servidor API)
+                const respuesta = await fetch('http://localhost:8050/datos.json');
+                
+                // Si el navegador nos deja leer la respuesta:
+                const datos = await respuesta.json();
+                divResultado.className = 'success';
+                divResultado.innerText = `¡Éxito! Datos recibidos: ${JSON.stringify(datos)}`;
+            } catch (error) {
+                // Si el navegador bloquea la lectura por CORS, caerá aquí
+                divResultado.className = 'error';
+                divResultado.innerHTML = `<strong>¡Error detectado!</strong><br>
+                No se pudo leer la respuesta.<br>
+                <em>Revisa la consola del navegador para ver el mensaje de CORS.</em>`;
+                console.error("Error capturado en JS:", error);
+            }
+        });
+    </script>
+</body>
+</html>
