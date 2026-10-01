@@ -6,6 +6,9 @@ const pedidos = [
  { cliente: "Eva", importe: 120, metodoPago: "PAYPAL" }
 ];
 
+let totalPedidosValidos = 0;
+let importeTotal = 0;
+
 for (pedido of pedidos) {
     if (pedido.importe === 0) {
         console.log(`Pedido de ${pedido.cliente} ignorado: importe no válido.`);
@@ -21,12 +24,18 @@ for (pedido of pedidos) {
     switch (pedido.metodoPago) {
     case "VISA":
         console.log("Pago con tarjeta");
+        totalPedidosValidos++;
+        importeTotal += pedido.importe;
         break;
     case "PAYPAL":
         console.log("Pago con PAYPAL.");
+        totalPedidosValidos++;
+        importeTotal += pedido.importe;
         break;
     case "EFECTIVO":
         console.log("Pago en efectivo.");
+        totalPedidosValidos++;
+        importeTotal += pedido.importe;
         break;
     default:
         console.log("Metodo de pago desconocido.");
