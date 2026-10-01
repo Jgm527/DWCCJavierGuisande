@@ -51,3 +51,31 @@ for (pedido of pedidos) {
         break;
     }
 }
+
+let opcion;
+
+do {
+    opcion = Number(prompt(
+        "1. Ver número de pedidos válidos\n" +
+        "2. Ver importe total\n" +
+        "3. Saír"
+    ));
+
+    switch (opcion) {
+        case 1:
+            console.log(`Pedidos válidos: ${totalPedidosValidos}`);
+            break;
+
+        case 2:
+            console.log(`Importe total: ${importeTotal} EUR`);
+            break;
+
+        case 3:
+            console.log("Saíndo do menú...");
+            break;
+
+        default:
+            console.log("Opción non válida.");
+    }
+
+} while (opcion !== 3);
