@@ -15,3 +15,18 @@ for (pedido of pedidos) {
         console.log(`${pedido.cliente} - ${pedido.importe} EUR - Pedido grande.`);
     }
 }
+
+switch (pedido.metodoPago) {
+    case "VISA":
+        console.log("Pago con tarjeta");
+        break;
+    case "PAYPAL":
+        console.log("Pago con PAYPAL.");
+        break;
+    case "EFECTIVO":
+        console.log("Pago en efectivo.");
+        break;
+    default:
+        console.log("Metodo de pago desconocido.");
+}
+
