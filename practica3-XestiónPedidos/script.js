@@ -42,5 +42,12 @@ for (pedido of pedidos) {
     }
 }
 
+console.log(`Pedidos válidos: ${totalPedidosValidos}`);
+console.log(`Importe total: ${importeTotal} EUR`);
 
-
+for (pedido of pedidos) {
+    if (pedido.importe < 100) {
+        console.log(`Primer pedido superior a 100 EUR: ${pedido.cliente}`);
+        break;
+    }
+}
