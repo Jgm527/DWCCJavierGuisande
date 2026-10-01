@@ -7,16 +7,18 @@ const pedidos = [
 ];
 
 for (pedido of pedidos) {
-    if (pedido.importe < 20) {
+    if (pedido.importe === 0) {
+        console.log(`Pedido de ${pedido.cliente} ignorado: importe no válido.`);
+        continue;
+    } else if (pedido.importe < 20) {
         console.log(`${pedido.cliente} - ${pedido.importe} EUR - Pedido pequeno.`);
     } else if (pedido.importe >= 20 && pedido.importe <= 50) {
         console.log(`${pedido.cliente} - ${pedido.importe} EUR - Pedido medio.`);
     } else {
         console.log(`${pedido.cliente} - ${pedido.importe} EUR - Pedido grande.`);
     }
-}
 
-switch (pedido.metodoPago) {
+    switch (pedido.metodoPago) {
     case "VISA":
         console.log("Pago con tarjeta");
         break;
@@ -28,5 +30,8 @@ switch (pedido.metodoPago) {
         break;
     default:
         console.log("Metodo de pago desconocido.");
+    }
 }
+
+
 
