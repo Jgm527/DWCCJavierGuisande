@@ -1,13 +1,9 @@
 function resaltarFilaPorNombre(nombre) {
-    const celdas = document.querySelectorAll('td');
-    let celdaEncontrada = null;
+    const celdas = Array.from(document.querySelectorAll('td'))
 
-    for (let td of celdas) {
-        if (td.textContent && td.textContent.includes(nombre)) {
-            celdaEncontrada = td;
-            break;
-        }
-    }
+    const celdaEncontrada = celdas.find(td => 
+        td.textContent && td.textContent.toLowerCase().includes(nombre.toLowerCase())
+    )
 
     if (celdaEncontrada) {
         celdaEncontrada.innerHTML = `<strong>${celdaEncontrada.textContent}</strong>`;

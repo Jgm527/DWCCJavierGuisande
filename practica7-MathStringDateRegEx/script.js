@@ -87,7 +87,7 @@ console.log("====Ejercicio 5====")
 console.log(sumarDias(hoy, 15))
 console.log(sumarDias(hoy, 72))
 
-
+// 6
 const hoyCumple = new Date(2026, 9, 23)
 
 function obtenerInfoCumpleaños(nacimiento, hoyCumple) {
